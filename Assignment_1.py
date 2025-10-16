@@ -30,5 +30,6 @@ while run_program:
         run_program = False
     else:
         print("\nIncorrect Input, please enter y(yes)/n(no)\n")
+print("This is the list of students in the system, and their corresponding accumulative GPA")
 for i in range(loop_count):
-        print(student_name[i], student_gpa[i])
+        print(student_name[i], format(student_gpa[i], ".2f"))
