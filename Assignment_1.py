@@ -2,13 +2,13 @@ print("Welcome to the Grade Registry Program")
 run_program = True
 student_name = []
 student_gpa = []
-loop_count = 0
+student_number = 0
 while run_program:
     print("\nWould you like to add a new student? y(yes),n(no)\n")
     confirmation_input = str(input(""))
     confirmation_input = confirmation_input.lower()
     if confirmation_input == 'y' or confirmation_input == 'yes':
-        loop_count+=1
+        student_number+=1
         print("\nEnter the student's name:\n")
         input_name = str(input(""))
         student_name.append(input_name)
@@ -19,9 +19,12 @@ while run_program:
             gpa_input = float(input(""))
             if gpa_input == -1:
                 break
-            sum+=gpa_input
-            count+=1
-        if count != 0:    
+            elif gpa_input > 4 or gpa_input < 0:
+                print("\ninvalid input\n")
+            else:
+                sum+=gpa_input
+                count+=1
+        if count != 0:     
             average = sum/count
             student_gpa.append(average)
         else:
@@ -31,5 +34,5 @@ while run_program:
     else:
         print("\nIncorrect Input, please enter y(yes)/n(no)\n")
 print("This is the list of students in the system, and their corresponding accumulative GPA")
-for i in range(loop_count):
+for i in range(student_number):
         print(student_name[i], format(student_gpa[i], ".2f"))
