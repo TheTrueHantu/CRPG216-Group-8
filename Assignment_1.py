@@ -2,13 +2,11 @@ print("Welcome to the Grade Registry Program")
 run_program = True
 student_name = []
 student_gpa = []
-student_number = 0
 while run_program:
     print("\nWould you like to add a new student? y(yes),n(no)\n")
     confirmation_input = str(input(""))
     confirmation_input = confirmation_input.lower()
     if confirmation_input == 'y' or confirmation_input == 'yes':
-        student_number+=1
         print("\nEnter the student's name:\n")
         input_name = str(input(""))
         student_name.append(input_name)
@@ -34,5 +32,5 @@ while run_program:
     else:
         print("\nIncorrect Input, please enter y(yes)/n(no)\n")
 print("This is the list of students in the system, and their corresponding accumulative GPA")
-for i in range(student_number):
-        print(student_name[i], format(student_gpa[i], ".2f"))
+for name, gpa in zip(student_name, student_gpa):
+        print(name, format(gpa, ".2f"))
